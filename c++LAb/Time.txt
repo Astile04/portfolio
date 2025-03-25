@@ -1,0 +1,45 @@
+#include<iostream>
+using namespace std;
+
+class Time{
+	private:
+		int hr1,min1,sec1;
+		int hr2,min2,sec2;
+		
+		int total_hr,total_min,total_sec;
+		
+	public:
+		void get(){
+			cout<<"Enter the 1st time hh:mm:ss :";
+			cin>>hr1>>min1>>sec1;
+			
+			
+			cout<<"Enter the 2nd time hh:mm:ss :";
+			cin>>hr2>>min2>>sec2;			
+		}
+		
+		
+		void add(){
+			total_hr=hr1+hr2;
+			total_min=min1+min2;
+			total_sec=sec1+sec2;
+			
+			if(total_min>=60){
+				total_hr+=1;
+				total_min-=60;
+			}
+			
+			if(total_sec>=60){
+				total_min+=1;
+				total_sec-=60;
+			}
+			
+			cout<<"After adding:"<<total_hr<<":"<<total_min<<":"<<total_sec;
+		}
+};
+
+int main(){
+	Time t;
+	t.get();
+	t.add();
+}

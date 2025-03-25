@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+	int x,y;
+	int option;
+	
+	cout<<"Enter two numbers:";
+	cin>>x>>y;
+	
+	cout<<"Enter the option 1)ADD 2)SUB 3)MUL 4)Divide:";
+	cin>>option;
+	
+	switch(option){
+		case 1:
+			cout<<"Result is:"<<x+y;
+			break;
+			
+		case 2:
+			cout<<"Result is:"<<x-y;
+			break;
+			
+		case 3:
+			cout<<"Result is:"<<x*y;
+			break;
+			
+		case 4:
+			cout<<"Result is:"<<x/y;
+			break;
+			
+		default:
+			cout<<"Enter  the correct option";
+			break;
+	}
+}

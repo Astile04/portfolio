@@ -1,0 +1,109 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+class Staff {
+protected:
+    int staff_id;
+
+public:
+    void get() {
+        cout << "Enter the staff ID: ";
+        cin >> staff_id;
+    }
+};
+
+// Education class for Teachers and Officers
+class Education {
+protected:
+    string highest_qualification;
+    float total_percentage;
+
+public:
+    void get_education() {
+        cout << "Enter highest qualification: ";
+        cin.ignore();
+        getline(cin, highest_qualification);
+        cout << "Enter total percentage: ";
+        cin >> total_percentage;
+    }
+};
+
+// Teacher class inheriting from Staff and Education
+class Teacher : public Staff, public Education {
+private:
+    string subject_publication;
+
+public:
+    void get_subject() {
+        cin.ignore(); // To ignore leftover newline from previous input
+        cout << "Enter the subject: ";
+        getline(cin, subject_publication);
+    }
+};
+
+// Typist class inheriting from Staff
+class Typist : public Staff {
+protected:
+    int typing_speed;
+
+public:
+    void get_speed() {
+        cout << "Enter the typing speed (words per minute): ";
+        cin >> typing_speed;
+    }
+};
+
+// Regular Typist class inheriting from Typist
+class Regular : public Typist {};
+
+// Casual Typist class inheriting from Typist with wages data member
+class Casual : public Typist {
+private:
+    float daily_wages;
+
+public:
+    void get_wages() {
+        cout << "Enter the daily wages: ";
+        cin >> daily_wages;
+    }
+};
+
+// Officer class inheriting from Staff and Education
+class Officer : public Staff, public Education {
+private:
+    char grade_of_officer[20];
+
+public:
+    void get_grade() {
+        cout << "Enter the grade: ";
+        cin >> grade_of_officer;
+    }
+};
+
+int main() {
+    Teacher t;
+    cout << "\nEnter Teacher Details:\n";
+    t.get();
+    t.get_subject();
+    t.get_education();
+
+    Officer o;
+    cout << "\nEnter Officer Details:\n";
+    o.get();
+    o.get_grade();
+    o.get_education();
+
+    Regular r;
+    cout << "\nEnter Regular Typist Details:\n";
+    r.get();
+    r.get_speed();
+
+    Casual c;
+    cout << "\nEnter Casual Typist Details:\n";
+    c.get();
+    c.get_speed();
+    c.get_wages();
+
+    return 0;
+}

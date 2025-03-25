@@ -1,0 +1,50 @@
+#include<iostream>
+using namespace std;
+
+class Mobile_phone{
+	private:
+		char brand[20];
+		char model[20];
+		float price;
+		int battery_life;
+		
+		int budget;
+		
+	public:
+		void get(){
+			cout<<"Enter the brand name:";
+			cin.getline(brand,20);
+			
+			cout<<"Enter the model name:";
+			cin.getline(model,20);
+			
+			cout<<"Enter the price:";
+			cin>>price;
+			
+			cout<<"Enter the batterylife:";
+			cin>>battery_life;
+		}
+		
+		void display(){
+			cout<<"Brand is:"<<brand<<endl
+			<<"MOdel is:"<<model<<endl
+			<<"Batterylife:"<<battery_life;
+		}
+		
+		void check(){
+			cout<<"Enter  your budget:";
+			cin>>budget;
+			
+			if(budget>price){
+				display();
+			}else{
+				cout<<"Budget is toolow";
+			}
+		}
+};
+
+int main(){
+	Mobile_phone mp;
+	mp.get();
+	mp.check();
+}

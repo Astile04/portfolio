@@ -1,0 +1,76 @@
+#include<iostream>
+using namespace std;
+
+class University{
+	private:
+		int no_college;
+	
+	public:
+		void get(){
+			cout<<"Enter the no of colleges:";
+			cin>>no_college;
+		}
+		void display(){
+			cout<<"Number of colleges are:"<<no_college;
+		}
+};
+
+
+class College : public University{
+	private:
+		char college_name[20];
+		int no_department;
+		
+	public:
+		void college_get(){
+			cout<<"Enter the college name:";
+			cin>>college_name;
+			
+			cout<<"Enter the number of departments:";
+			cin>>no_department;
+		}
+		
+		void college_display(){
+			cout<<"College name is:"<<college_name<<endl;
+			cout<<"Number of departments:"<<no_department;
+		}
+	
+};
+
+
+class Department : public College{
+	private:
+		char department_name[20];
+		int no_faculty;
+		
+	public:
+		void department_get(){
+			cout<<"Enter the department name:";
+			cin>>department_name;
+			
+			cout<<"Enter the number of faculty members:";
+			cin>>no_faculty;
+		}
+		
+		void department_display(){
+			cout<<"Department is:"<<department_name;
+			cout<<"Number of faculties:"<<no_faculty;
+		}
+		
+		
+};
+
+
+
+int main(){
+	Department d;
+	d.get();
+	d.display();
+	
+	d.college_get();
+	d.college_display();
+	
+	d.department_get();
+	d.department_display();
+	
+}

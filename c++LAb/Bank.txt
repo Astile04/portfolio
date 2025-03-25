@@ -1,0 +1,103 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
+
+class Account{
+	protected:
+		string customer_name;
+		string  account_type;
+		int account_number;
+		int balance;
+		int penalty;
+		
+	public:
+		Account(){
+			balance=0;
+			penalty=50;
+		}
+		
+		void set_details(){
+			cout<<"Enter the customer name:";
+			getline(cin,customer_name);
+			
+			cout<<"Enter the account type:";
+			getline(cin,account_type);
+			
+			cout<<"Enter the account number:";
+			cin>>account_number;
+			
+			cout<<"Ente the initial balance:";
+			cin>>balance;
+		}
+};
+
+
+class Current_account : public Account{
+	private:
+		int deposit,withdraw,min_balance;
+		
+	public:
+		Current_account(){
+			min_balance=5000;
+		}
+		
+		void add(){
+			cout<<"Enter the amount to deposit:";
+			cin>>deposit;
+			
+			balance+=deposit;
+		}
+		
+		void withdrawl(){
+			cout<<"Enter the amount to withdraw:";
+			cin>>withdraw;
+			
+			if(balance-withdraw<min_balance){
+				cout<<"Penalty of 50 applied due to min_balance";
+				balance-=penalty;
+			}else{
+				balance-=withdraw;
+			}
+			cout<<"Balance is:"<<balance;
+		}
+};
+
+
+class Savings_account :  public Account{
+	private:
+		int amount,deposit;
+		float interest_rate;
+		
+	public:
+		Savings_account(){
+			amount=0;
+		}
+		
+		void simple_interest(){
+			cout<<"Enter the amount to deposit:";
+			cin>>deposit;
+			
+			cout<<"Enter the interest rate:";
+			cin>>interest_rate;
+			balance+=deposit;
+			
+			amount=balance*(interest_rate/100.0);
+			balance+=amount;
+			
+			cout<<"Interest added:"<<amount;
+			
+			cout<<"Balance is:"<<balance;
+		}
+};
+
+
+
+int  main(){
+	Current_account ca;
+	Savings_account sa;
+	
+	//ca.add();
+	//ca.withdrawl();
+	
+	sa.simple_interest();
+}

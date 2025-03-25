@@ -1,0 +1,72 @@
+#include<iostream>
+using namespace std;
+
+class Ticbooth{
+	private:
+		int no_people;
+		int ticket_sold;
+		float amount;
+		float ticket_price;
+		
+	public:
+		Ticbooth(){
+			ticket_price=2.50;
+			amount=0;
+		}
+		
+		void increment_people(){
+			no_people++;
+		}
+		
+		void increment_ticket(){
+			no_people++;
+			ticket_sold++;
+			
+			amount+=ticket_price;
+		}
+		
+		void dispaly_total(){
+			cout<<"Total number of people visited:"<<no_people;
+			cout<<"Total amount collected:"<<amount;
+		}
+		
+		void ticket_total(){
+			cout<<"Total number  of tickets sold:"<<ticket_sold;
+		}
+};
+
+
+
+int main(){
+	Ticbooth tb;
+	int x;
+	
+	do{
+		cout<<"1) Record a visitor"<<endl
+		<<"2) Sell a ticket"<<endl
+		<<"3) Display two totals"<<endl
+		<<"4)Display tickets sold"<<endl;
+		
+		cout<<"Enter the option:";
+		cin>>x;
+		
+		switch(x){
+			case 1:
+				tb.increment_people();
+				break;
+				
+			case 2:
+				tb.increment_ticket();
+				break;
+				
+			case 3:
+				tb.dispaly_total();
+				break;
+				
+			case 4:
+				tb.ticket_total();
+				break;
+		}
+		
+	}while(x!=4);
+}

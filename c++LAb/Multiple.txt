@@ -1,0 +1,77 @@
+#include<iostream>
+using namespace std;
+
+class Student{
+	private:
+		int roll_no;
+		char name[20];
+	public:
+		void get_details(){
+			cout<<"Enter the roll_no:";
+			cin>>roll_no;
+			cin.ignore();
+			cout<<"Enter the name:";
+			cin.getline(name,20);
+		}
+		
+		void display(){
+			cout<<"Roll no is:"<<roll_no;
+			cout<<"Name is:"<<name;
+		}
+};
+
+
+
+class Exam{
+	public:
+		int marks[6];
+		
+		void get(){
+			
+			cout<<"Enter the marks for 6 subjects:";
+			for(int i=0;i<6;i++){
+				cin>>marks[i];
+		}
+	}
+		
+		void display_marks(){
+			cout<<"Marks in 6 subjects:";
+			for(int i=0;i<6;i++){
+				cout<<marks[i]<" ";
+			}
+			cout<<endl;
+		}
+
+};
+
+
+class Result : public Student,public Exam{
+	private:
+		int total;
+	public:
+		
+		Result(){
+			total=0;
+		}
+		void total_result(){
+			for(int i=0;i<6;i++){
+				total+=marks[i];
+			}
+			cout<<"Total marks is:"<<total;
+		}
+		
+		void display_result(){
+			display();
+			display_marks();
+			total_result();
+		}
+};
+
+int main(){
+	Result r;
+	r.get_details();
+	r.get();
+	r.display_result();
+	
+	
+}
