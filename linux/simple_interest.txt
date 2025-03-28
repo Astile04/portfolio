@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+si()
+{
+
+read -p "Enter amount" p
+read -p "Enter rate" r
+read -p "Enter time" t
+
+echo "Simple interest is $(($p*$r*$t/100))"
+
+}
+si 

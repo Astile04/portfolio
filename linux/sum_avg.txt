@@ -1,0 +1,10 @@
+#!/bin/bash
+
+read -p "Enter 3 numbers" a b c
+
+sum=$(($a+$b+$c))
+avg=$(($sum/3))
+
+echo "Sum is $sum"
+
+echo "Avg is $avg"

@@ -1,0 +1,30 @@
+#!/bin/bash
+
+read -p "Enter 2 numbers" a b
+
+read -p "Enter the option 1)Add 2)Sub 3)Mul 4)Divide" opt
+
+case $opt in
+
+1)
+echo "result is  $(($a+$b))"
+;;
+
+2)
+echo "Result is $(($a-$b))"
+;;
+
+3)
+echo "Result is $(($a*$b))"
+;;
+
+
+4)
+echo "Result is $(($a/$b))"
+;;
+
+*)
+echo "Invalid option"
+;;
+
+esac

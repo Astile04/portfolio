@@ -1,0 +1,10 @@
+#!/bin/bash
+
+read -p "Enter the dir" dir
+
+if [[ -d "$dir" ]]
+then
+echo "Dir exists"
+else
+echo "Dir does not exists"
+fi

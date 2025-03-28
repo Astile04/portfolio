@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo "Today's date is $(date)"
+sleep 2
+echo "Current dir is:$(pwd)"
+sleep 2
+echo "Lists of files and dir:$(ls)"
+sleep 2

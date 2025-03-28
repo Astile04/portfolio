@@ -1,0 +1,18 @@
+#!/bin/bash
+
+read -p "Enter a number" x
+sum=0
+temp=$x
+while [ $x -ne 0 ]
+do
+arm=$(($x % 10))
+sum=$(($sum+arm*arm*arm))
+x=$(($x/10))
+done
+
+if(($temp == $sum))
+then
+echo "armstrong"
+else
+echo "Not armstrong"
+fi
